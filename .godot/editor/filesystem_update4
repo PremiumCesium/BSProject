@@ -1,2 +1,7 @@
-res://Scenes/world.tscn
-res://player.gd
+res://res/scenes/levels/world.tscn
+res://res/scenes/levels/test_map.tscn
+res://src/player/player.gd
+res://res/textures/enviorment/walls/computer_wall.tres
+res://res/textures/enviorment/walls/grate_wall.tres
+res://res/textures/ps1_post_processing.gdshader
+res://res/scenes/prefabs/player.tscn

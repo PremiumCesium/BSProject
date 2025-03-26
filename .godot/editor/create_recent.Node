@@ -1,4 +1,10 @@
-CollisionShape3D
+Node3D
+OmniLight3D
+SpotLight3D
+SubViewport
+SubViewportContainer
 MeshInstance3D
 StaticBody3D
-Node3D
+CSGBox3D
+CollisionPolygon3D
+CollisionShape3D
