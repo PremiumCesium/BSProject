@@ -1,6 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsnaxdlfjtpak"]
+[gd_scene load_steps=12 format=3 uid="uid://dsnaxdlfjtpak"]
 
 [ext_resource type="Script" uid="uid://ddbt0oeqepwb0" path="res://player.gd" id="1_a02cp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8j60k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fo5ed"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_go701"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5a7ea"]
+size = Vector3(20, 1, 20)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a02cp"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -15,38 +25,19 @@ sky = SubResource("Sky_go701")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_go701"]
-size = Vector3(20, 1, 20)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
+albedo_color = Color(1, 0.0627451, 0, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5a7ea"]
-size = Vector3(20, 1, 20)
+[sub_resource type="BoxMesh" id="BoxMesh_go701"]
+material = SubResource("StandardMaterial3D_a02cp")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8j60k"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fo5ed"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_a02cp"]
 
 [node name="World" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.217761, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_5a7ea")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_go701")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_5a7ea")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77507, 0)
 script = ExtResource("1_a02cp")
-player_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00198436, -0.00833523, 0.00627279)
@@ -58,3 +49,87 @@ mesh = SubResource("CapsuleMesh_fo5ed")
 [node name="head" type="Node3D" parent="Player"]
 
 [node name="Camera3D" type="Camera3D" parent="Player/head"]
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Level"]
+
+[node name="GroundCollider" type="CollisionShape3D" parent="Level/Ground"]
+shape = SubResource("BoxShape3D_go701")
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Level/Ground"]
+mesh = SubResource("BoxMesh_5a7ea")
+
+[node name="Enviorment" type="Node3D" parent="Level"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Enviorment"]
+environment = SubResource("Environment_5a7ea")
+
+[node name="Sun" type="DirectionalLight3D" parent="Level/Enviorment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Cubes" type="Node3D" parent="Level"]
+
+[node name="SampleCube" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803913, 1.01617, 6.4033)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube2" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.803913, 1.01617, -6.09617)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube2"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube2"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube3" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08681, 1.01617, -4.11234)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube3"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube3"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube4" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08681, 1.01617, 1.85245)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube4"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube4"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube5" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97848, 1.01617, -1.33465)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube5"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube5"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube6" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8817, 1.01617, -1.33465)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube6"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube6"]
+shape = SubResource("BoxShape3D_a02cp")
+
+[node name="SampleCube7" type="StaticBody3D" parent="Level/Cubes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16776, 1.01617, 2.67948)
+
+[node name="BoxMesh" type="MeshInstance3D" parent="Level/Cubes/SampleCube7"]
+mesh = SubResource("BoxMesh_go701")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="Level/Cubes/SampleCube7"]
+shape = SubResource("BoxShape3D_a02cp")
