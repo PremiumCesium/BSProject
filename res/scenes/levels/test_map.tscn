@@ -234,4 +234,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
 light_color = Color(0, 0, 1, 1)
 
 [node name="player" parent="ps1_psx_container/ps1_psx_viewport" instance=ExtResource("1_td57m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.11699)

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "aXZuMKwL+Y4=",
+  "success": true,
+  "projectFilePath": "/Users/tysonthigpen/Projects/Coding/Games/BSProject/BS_Project.csproj",
+  "expectedPackageFiles": [
+    "/Users/tysonthigpen/.nuget/packages/godot.sourcegenerators/4.4.1/godot.sourcegenerators.4.4.1.nupkg.sha512",
+    "/Users/tysonthigpen/.nuget/packages/godotsharp/4.4.1/godotsharp.4.4.1.nupkg.sha512",
+    "/Users/tysonthigpen/.nuget/packages/godotsharpeditor/4.4.1/godotsharpeditor.4.4.1.nupkg.sha512"
+  ],
+  "logs": []
+}
