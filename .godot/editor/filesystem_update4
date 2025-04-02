@@ -7,3 +7,11 @@ res://res/textures/enviorment/ceiling/ceiling_1.tres
 res://res/scenes/levels/test_map.tscn
 res://res/scenes/prefabs/player.tscn
 res://src/player/Player.cs
+res://src/player/weapon.gd
+res://src/weapons/weapon_resource.gd
+res://src/weapons/rifle.tres
+res://src/player/weapon_holder.gd
+res://src/weapons/weapon.gd
+res://src/rifle.tres
+res://src/weapons/rifle1.tres
+res://weapon_holder.tscn

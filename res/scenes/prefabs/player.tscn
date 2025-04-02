@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjhauaykw2c5i"]
+[gd_scene load_steps=5 format=3 uid="uid://cjhauaykw2c5i"]
 
 [ext_resource type="Script" uid="uid://51v18cfuo1vh" path="res://src/player/Player.cs" id="1_ito5u"]
+[ext_resource type="PackedScene" uid="uid://40vm8l38jj6g" path="res://weapon_holder.tscn" id="2_r6hbf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8j60k"]
 
@@ -27,3 +28,12 @@ light_color = Color(1, 1, 0.811765, 1)
 light_energy = 7.0
 spot_range = 50.0
 spot_angle = 30.0
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 20, 0)
+
+[node name="hand" type="Node3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.250108, -0.385084, -0.520581)
+
+[node name="weapon_holder" parent="head/hand" instance=ExtResource("2_r6hbf")]

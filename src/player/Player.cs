@@ -22,21 +22,19 @@ public partial class Player : CharacterBody3D
 
     public override void _Input(InputEvent @event)
     {
-        switch (@event)
+        if (@event is InputEventMouseMotion mouseEvent)
         {
-            case InputEventMouseButton mouseButton when mouseButton.IsPressed():
-                if (mouseButton.ButtonIndex == MouseButton.Left)
-                {
-                    Input.MouseMode = Input.MouseModeEnum.Captured;
-                }
-                break;
-
-            case InputEventMouseButton mouseButton when !mouseButton.IsPressed():
-                if (mouseButton.ButtonIndex == MouseButton.Left)
-                {
-                    Input.MouseMode = Input.MouseModeEnum.Visible;
-                }
-                break;
+            player.RotateY(-Mathf.DegToRad(mouseEvent.Relative.X * MouseSensitivity));
+            camXDeg -= mouseEvent.Relative.Y * MouseSensitivity;
+            camXDeg = Mathf.Clamp(camXDeg, -90.0f, 90.0f);
+            head.RotationDegrees = new Vector3(camXDeg, head.RotationDegrees.Y, head.RotationDegrees.Z);
+        }
+        else if (@event is InputEventKey keyEvent)
+        {
+            if (Input.IsKeyPressed(Key.Escape))
+            {
+                GetTree().Quit();
+            }
         }
     }
 
