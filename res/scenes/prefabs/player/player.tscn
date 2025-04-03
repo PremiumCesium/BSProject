@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjhauaykw2c5i"]
+[gd_scene load_steps=6 format=3 uid="uid://cjhauaykw2c5i"]
 
 [ext_resource type="Script" uid="uid://51v18cfuo1vh" path="res://src/player/Player.cs" id="1_ito5u"]
-[ext_resource type="PackedScene" uid="uid://40vm8l38jj6g" path="res://weapon_holder.tscn" id="2_r6hbf"]
+[ext_resource type="PackedScene" uid="uid://40vm8l38jj6g" path="res://res/scenes/prefabs/player/weapon_holder.tscn" id="2_r6hbf"]
+[ext_resource type="Resource" uid="uid://c5djy6pkb3cbg" path="res://src/weapons/rifle1.tres" id="3_sy4e7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8j60k"]
 
@@ -37,3 +38,5 @@ target_position = Vector3(0, 20, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.250108, -0.385084, -0.520581)
 
 [node name="weapon_holder" parent="head/hand" instance=ExtResource("2_r6hbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.653494)
+current_weapon = ExtResource("3_sy4e7")

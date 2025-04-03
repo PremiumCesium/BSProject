@@ -1,3 +1,4 @@
+res://src/player/weapon_holder.gd
 res://res/scenes/levels/world.tscn
 res://res/textures/enviorment/walls/computer_wall.tres
 res://res/textures/ps1_post_processing.gdshader
@@ -7,11 +8,8 @@ res://res/textures/enviorment/ceiling/ceiling_1.tres
 res://res/scenes/levels/test_map.tscn
 res://res/scenes/prefabs/player.tscn
 res://src/player/Player.cs
-res://src/player/weapon.gd
-res://src/weapons/weapon_resource.gd
-res://src/weapons/rifle.tres
-res://src/player/weapon_holder.gd
-res://src/weapons/weapon.gd
-res://src/rifle.tres
-res://src/weapons/rifle1.tres
 res://weapon_holder.tscn
+res://weapon_holder.gd
+res://res/scenes/prefabs/player/player.tscn
+res://res/scenes/prefabs/player/weapon_holder.tscn
+res://src/weapons/rifle1.tres

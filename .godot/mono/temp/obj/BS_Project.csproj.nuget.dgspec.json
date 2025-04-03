@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tysonthigpen/Projects/Coding/Games/BSProject/BS_Project.csproj": {}
+    "D:\\Projects\\Coding\\BSProject\\BS_Project.csproj": {}
   },
   "projects": {
-    "/Users/tysonthigpen/Projects/Coding/Games/BSProject/BS_Project.csproj": {
+    "D:\\Projects\\Coding\\BSProject\\BS_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tysonthigpen/Projects/Coding/Games/BSProject/BS_Project.csproj",
+        "projectUniqueName": "D:\\Projects\\Coding\\BSProject\\BS_Project.csproj",
         "projectName": "BS_Project",
-        "projectPath": "/Users/tysonthigpen/Projects/Coding/Games/BSProject/BS_Project.csproj",
-        "packagesPath": "/Users/tysonthigpen/.nuget/packages/",
-        "outputPath": "/Users/tysonthigpen/Projects/Coding/Games/BSProject/.godot/mono/temp/obj/",
+        "projectPath": "D:\\Projects\\Coding\\BSProject\\BS_Project.csproj",
+        "packagesPath": "C:\\Users\\Tyson\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Coding\\BSProject\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tysonthigpen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Tyson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,7 +1,6 @@
 @tool
+
 extends Node3D
-
-
 
 @export var current_weapon: Weapon:
 	set(value):
@@ -9,30 +8,25 @@ extends Node3D
 		if Engine.is_editor_hint():
 			load_weapon(value)
 
-var weapon_damage: int
-var weapon_range: int
-var weapon_ammo: int
-var weapon_fire_rate: float
-
-var current_ammo: int
-
 @onready var weapon_mesh: MeshInstance3D = %weapon_mesh
 
-func _ready():
+var weapon_ammo: int        = 0
+var weapon_damage: int      = 0
+var weapon_range: int       = 0
+var weapon_fire_rate: float = 0.0
+var weapon_name: String     = ""
+var curent_ammo: int        = 0
+
+func _ready() -> void:
 	load_weapon(current_weapon)
-	
+
 func load_weapon(weapon: Weapon) -> void:
-	if weapon == null:
-		print("No weapon loaded")
-		return
+	weapon_mesh.mesh = weapon.mesh
+	weapon_ammo = weapon.weapon_ammo
+	weapon_damage = weapon.weapon_damage
+	weapon_range = weapon.weapon_range
+	weapon_fire_rate = weapon.weapon_fire_rate
+	weapon_name = weapon.weapon_name
+	curent_ammo = weapon_ammo
 	
-	print("Loading weapon: ", weapon.weapon_name)
-	
-	# Load the weapon model and set it as a child of this node
-	self.weapon_mesh_holder.mesh = weapon.mesh
-	
-	# Set the weapon properties
-	self.weapon_damage = weapon.weapon_damage
-	self.weapon_range = weapon.weapon_range
-	self.weapon_ammo = weapon.weapon_ammo
-	self.weapon_fire_rate = weapon.weapon_fire_rate
+						
