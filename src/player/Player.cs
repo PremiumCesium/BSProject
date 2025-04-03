@@ -22,12 +22,24 @@ public partial class Player : CharacterBody3D
 
     public override void _Input(InputEvent @event)
     {
+        Look(@event);
+        
+        if (@event.IsActionPressed("ui_cancel"))
+        {
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+        }
+    }
+
+    private void Look(InputEvent @event)
+    {
         if (@event is InputEventMouseMotion mouseEvent)
         {
-            player.RotateY(-Mathf.DegToRad(mouseEvent.Relative.X * MouseSensitivity));
+            player.RotateY(
+                -Mathf.DegToRad(mouseEvent.Relative.X * MouseSensitivity));
             camXDeg -= mouseEvent.Relative.Y * MouseSensitivity;
             camXDeg = Mathf.Clamp(camXDeg, -90.0f, 90.0f);
-            head.RotationDegrees = new Vector3(camXDeg, head.RotationDegrees.Y, head.RotationDegrees.Z);
+            head.RotationDegrees = new Vector3(camXDeg, head.RotationDegrees.Y,
+                head.RotationDegrees.Z);
         }
         else if (@event is InputEventKey keyEvent)
         {
@@ -40,9 +52,15 @@ public partial class Player : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        direction = Input.GetAxis("left", "right") * player.Basis.X + 
+        Movement(delta);
+    }
+
+    private void Movement(double delta)
+    {
+        direction = Input.GetAxis("left", "right") * player.Basis.X +
                     Input.GetAxis("forward", "backwards") * player.Basis.Z;
-        Velocity = direction.Normalized() * PlayerSpeed + Velocity.Y * Vector3.Up;
+        Velocity = direction.Normalized() * PlayerSpeed +
+                   Velocity.Y * Vector3.Up;
 
         if (Input.IsActionJustPressed("jump") && IsOnFloor())
         {
@@ -50,7 +68,8 @@ public partial class Player : CharacterBody3D
         }
         else
         {
-            Velocity = new Vector3(Velocity.X, Velocity.Y - Gravity * (float)delta, Velocity.Z);
+            Velocity = new Vector3(Velocity.X,
+                Velocity.Y - Gravity * (float)delta, Velocity.Z);
         }
 
         MoveAndSlide();

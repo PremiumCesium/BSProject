@@ -13,3 +13,4 @@ res://weapon_holder.gd
 res://res/scenes/prefabs/player/player.tscn
 res://res/scenes/prefabs/player/weapon_holder.tscn
 res://src/weapons/rifle1.tres
+res://src/player/player.gd
