@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var player_speed: float = 5.0
-@export var jump_force: float = 3.0
+@export var jump_force: float = 8.0
 @export var gravity: float = 8.0
 @export var mouse_sensitivity: float = 0.5
 
