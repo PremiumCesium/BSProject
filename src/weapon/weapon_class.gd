@@ -1,4 +1,4 @@
-class_name Weapon
+class_name WeaponClass
 
 @export var weapon_equipped: int
 @export var weapon_name: String
