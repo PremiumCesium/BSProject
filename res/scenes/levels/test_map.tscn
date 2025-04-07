@@ -1,11 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjjsjbmfa2lar"]
+[gd_scene load_steps=30 format=3 uid="uid://cjjsjbmfa2lar"]
 
-[ext_resource type="Material" uid="uid://dpevq1apt6flf" path="res://res/textures/enviorment/walls/computer_wall.tres" id="1_qf63d"]
-[ext_resource type="PackedScene" uid="uid://cjhauaykw2c5i" path="res://res/scenes/prefabs/player.tscn" id="1_td57m"]
+[ext_resource type="PackedScene" uid="uid://cjhauaykw2c5i" path="res://res/scenes/prefabs/player/player.tscn" id="1_td57m"]
 [ext_resource type="Shader" uid="uid://cvluhcijb2bvr" path="res://res/textures/ps1_post_processing.gdshader" id="2_u7jvo"]
+[ext_resource type="PackedScene" uid="uid://d05c1b606t1wq" path="res://res/scenes/prefabs/enviorment/test_room.tscn" id="2_uwlip"]
 [ext_resource type="Material" uid="uid://cduq3w7y8fcbx" path="res://res/textures/enviorment/walls/grate_wall.tres" id="2_uj8md"]
 [ext_resource type="Material" uid="uid://cwbvp2unswh72" path="res://res/textures/enviorment/floor/floor_1.tres" id="3_u7jvo"]
 [ext_resource type="Material" uid="uid://o0yu22y2rj8b" path="res://res/textures/enviorment/ceiling/ceiling_1.tres" id="4_ycm1u"]
+[ext_resource type="Script" uid="uid://cu2uslldqqsx5" path="res://res/scenes/prefabs/BasicEnemy.gd" id="7_u7jvo"]
+[ext_resource type="Script" uid="uid://b31sj5b1uojaq" path="res://res/scenes/prefabs/state_machine.gd" id="8_ycm1u"]
+[ext_resource type="Script" uid="uid://efgt8awfatf1" path="res://res/scenes/prefabs/enemyIdle.gd" id="9_w36j2"]
+[ext_resource type="Script" uid="uid://bx0rge0rtlvdo" path="res://res/scenes/prefabs/enemyFollow.gd" id="10_ordva"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycm1u"]
 shader = ExtResource("2_u7jvo")
@@ -72,6 +76,13 @@ size = Vector2(30, 20)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwlip"]
 data = PackedVector3Array(15, 0, 10, -15, 0, 10, 15, 0, -10, -15, 0, 10, -15, 0, -10, 15, 0, -10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ordva"]
+size = Vector3(2.3905, 1.3927, 3.96826)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7jvo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uj8md"]
+
 [node name="test_map" type="Node3D"]
 
 [node name="ps1_psx_container" type="SubViewportContainer" parent="."]
@@ -97,141 +108,41 @@ shadow_enabled = true
 [node name="world_enviorment" type="WorldEnvironment" parent="ps1_psx_container/ps1_psx_viewport/level/enviorment"]
 environment = SubResource("Environment_uwlip")
 
-[node name="room" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level"]
-
-[node name="wall_1" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="wall_1_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_1"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 10)
-mesh = SubResource("PlaneMesh_qf63d")
-skeleton = NodePath("../../..")
-
-[node name="wall_1_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_1"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 10)
-shape = SubResource("ConcavePolygonShape3D_x28fn")
-
-[node name="wall_2" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="wall_2_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5, -10)
-mesh = SubResource("PlaneMesh_uwlip")
-skeleton = NodePath("../..")
-
-[node name="wall_2_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5, -10)
-shape = SubResource("ConcavePolygonShape3D_4m4k2")
-
-[node name="wall_3" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="wall_3_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_3"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 5, 0)
-mesh = SubResource("PlaneMesh_uj8md")
-skeleton = NodePath("../..")
-
-[node name="wall_3_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_3"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 5, 0)
-shape = SubResource("ConcavePolygonShape3D_u7jvo")
-
-[node name="wall_4" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="wall_4_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_4"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -15, 5, 0)
-mesh = SubResource("PlaneMesh_ycm1u")
-
-[node name="wall_4_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/wall_4"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -15, 5, 0)
-shape = SubResource("ConcavePolygonShape3D_w36j2")
-
-[node name="floor" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="floor_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/floor"]
-mesh = SubResource("PlaneMesh_4m4k2")
-skeleton = NodePath("../../..")
-
-[node name="floor_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/floor"]
-shape = SubResource("ConcavePolygonShape3D_td57m")
-
-[node name="ceiling" type="StaticBody3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="ceiling_mesh" type="MeshInstance3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/ceiling"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 10, 0)
-mesh = SubResource("PlaneMesh_td57m")
-
-[node name="ceiling_collider" type="CollisionShape3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/ceiling"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 10, 0)
-shape = SubResource("ConcavePolygonShape3D_uwlip")
-
-[node name="lights" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room"]
-
-[node name="computer_lights_1" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43379, 5.28272, 9.86068)
-
-[node name="computer_light_1" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-light_color = Color(1, 0, 0, 1)
-
-[node name="computer_light_2" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_1"]
-light_color = Color(0, 0.611765, 0, 1)
-
-[node name="computer_light_3" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
-light_color = Color(0, 0, 1, 1)
-
-[node name="computer_lights_2" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3906, 5.28272, 9.86068)
-
-[node name="computer_light_1" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-light_color = Color(1, 0, 0, 1)
-
-[node name="computer_light_2" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_2"]
-light_color = Color(0, 0.611765, 0, 1)
-
-[node name="computer_light_3" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
-light_color = Color(0, 0, 1, 1)
-
-[node name="computer_lights_3" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5368, 5.28272, 9.86068)
-
-[node name="computer_light_1" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-light_color = Color(1, 0, 0, 1)
-
-[node name="computer_light_2" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_3"]
-light_color = Color(0, 0.611765, 0, 1)
-
-[node name="computer_light_3" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
-light_color = Color(0, 0, 1, 1)
-
-[node name="computer_lights_4" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8814, 5.21833, 2.58675)
-
-[node name="computer_light_1" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-light_color = Color(1, 0, 0, 1)
-
-[node name="computer_light_2" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_4"]
-light_color = Color(0, 0.611765, 0, 1)
-
-[node name="computer_light_3" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
-light_color = Color(0, 0, 1, 1)
-
-[node name="computer_lights_5" type="Node3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9273, 5.21833, -7.40728)
-
-[node name="computer_light_1" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
-light_color = Color(1, 0, 0, 1)
-
-[node name="computer_light_2" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_5"]
-light_color = Color(0, 0.611765, 0, 1)
-
-[node name="computer_light_3" type="OmniLight3D" parent="ps1_psx_container/ps1_psx_viewport/level/room/lights/computer_lights_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
-light_color = Color(0, 0, 1, 1)
+[node name="room" parent="ps1_psx_container/ps1_psx_viewport/level" instance=ExtResource("2_uwlip")]
 
 [node name="player" parent="ps1_psx_container/ps1_psx_viewport" instance=ExtResource("1_td57m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="AI" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.94505, 0.737866, 0)
+script = ExtResource("7_u7jvo")
+
+[node name="StateMachine" type="Node3D" parent="AI" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("8_ycm1u")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node3D" parent="AI/StateMachine" node_paths=PackedStringArray("enemy", "ai", "area_node")]
+script = ExtResource("9_w36j2")
+enemy = NodePath("../..")
+move_speed = 5.0
+ai = NodePath("..")
+nametoTransition = "Follow"
+area_node = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="AI/StateMachine/Idle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AI/StateMachine/Idle/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26947, 0.19635, 0.354736)
+shape = SubResource("BoxShape3D_ordva")
+
+[node name="Follow" type="Node3D" parent="AI/StateMachine" node_paths=PackedStringArray("enemy", "player")]
+script = ExtResource("10_ordva")
+enemy = NodePath("../..")
+player = NodePath("../../../ps1_psx_container/ps1_psx_viewport/player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AI"]
+shape = SubResource("BoxShape3D_u7jvo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AI/CollisionShape3D"]
+mesh = SubResource("BoxMesh_uj8md")
+skeleton = NodePath("")
