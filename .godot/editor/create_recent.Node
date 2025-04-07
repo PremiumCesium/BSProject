@@ -1,11 +1,22 @@
+<<<<<<< HEAD
 MeshInstance3D
 Node3D
 RayCast3D
+=======
+CollisionShape3D
+Area3D
+Node3D
+CharacterBody3D
+StaticBody3D
+MeshInstance3D
+>>>>>>> 219cf00c7f018519b51dce4dddb7240e6ee42f27
 OmniLight3D
 SpotLight3D
 SubViewport
 SubViewportContainer
+<<<<<<< HEAD
 StaticBody3D
+=======
+>>>>>>> 219cf00c7f018519b51dce4dddb7240e6ee42f27
 CSGBox3D
 CollisionPolygon3D
-CollisionShape3D

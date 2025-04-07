@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 res://src/player/player.gd
+=======
+>>>>>>> 219cf00c7f018519b51dce4dddb7240e6ee42f27
 res://res/scenes/levels/world.tscn
 res://res/textures/enviorment/walls/computer_wall.tres
 res://res/textures/ps1_post_processing.gdshader
@@ -7,6 +10,7 @@ res://res/textures/enviorment/floor/floor_1.tres
 res://res/textures/enviorment/ceiling/ceiling_1.tres
 res://res/scenes/levels/test_map.tscn
 res://res/scenes/prefabs/player.tscn
+<<<<<<< HEAD
 res://src/player/Player.cs
 res://weapon_holder.tscn
 res://weapon_holder.gd
@@ -14,3 +18,11 @@ res://res/scenes/prefabs/player/player.tscn
 res://res/scenes/prefabs/player/weapon_holder.tscn
 res://src/weapons/rifle1.tres
 res://src/player/player.gd
+=======
+res://res/scenes/prefabs/ai.gd
+res://res/scenes/prefabs/state.gd
+res://res/scenes/prefabs/state_machine.gd
+res://res/scenes/prefabs/enemyIdle.gd
+res://res/scenes/prefabs/BasicEnemy.gd
+res://res/scenes/prefabs/enemyFollow.gd
+>>>>>>> 219cf00c7f018519b51dce4dddb7240e6ee42f27
