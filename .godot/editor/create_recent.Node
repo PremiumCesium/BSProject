@@ -1,11 +1,12 @@
-MeshInstance3D
+CollisionShape3D
+Area3D
 Node3D
-RayCast3D
+CharacterBody3D
+StaticBody3D
+MeshInstance3D
 OmniLight3D
 SpotLight3D
 SubViewport
 SubViewportContainer
-StaticBody3D
 CSGBox3D
 CollisionPolygon3D
-CollisionShape3D
