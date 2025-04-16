@@ -1,4 +1,0 @@
-Weapon
-Resource
-Shader
-VisualShader
