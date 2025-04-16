@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwbvp2unswh72"]
+
+[ext_resource type="Texture2D" uid="uid://cf1vs5yjr84a4" path="res://textures/enviorment/floor/floor_002.png" id="1_i6uya"]
+
+[resource]
+albedo_texture = ExtResource("1_i6uya")
+emission = Color(1, 0, 0, 1)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_offset = Vector3(0, 0, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
