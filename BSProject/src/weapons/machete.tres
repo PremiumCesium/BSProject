@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cvf5x61xaaudn"]
+
+[ext_resource type="Script" uid="uid://bhekswa3ooxty" path="res://src/weapons/weapon.gd" id="1_fvacc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fvacc"]
+
+[resource]
+script = ExtResource("1_fvacc")
+weapon_name = "Machete"
+weapon_damage = 100
+weapon_range = 2
+weapon_ammo = 0
+weapon_fire_rate = 2.0
+mesh = SubResource("CapsuleMesh_fvacc")
+metadata/_custom_type_script = "uid://bhekswa3ooxty"

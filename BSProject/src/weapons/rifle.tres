@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cp75rvlsidscq"]
+
+[ext_resource type="Script" uid="uid://bhekswa3ooxty" path="res://src/weapons/weapon.gd" id="1_qnyvs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qnyvs"]
+
+[resource]
+script = ExtResource("1_qnyvs")
+weapon_name = "Rifle"
+weapon_damage = 20
+weapon_range = 20
+weapon_ammo = 20
+weapon_fire_rate = 20.0
+mesh = SubResource("BoxMesh_qnyvs")
+metadata/_custom_type_script = "uid://bhekswa3ooxty"
