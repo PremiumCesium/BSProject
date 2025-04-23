@@ -24,11 +24,7 @@ func Physics_Update(delta: float):
 			increment = move_speed
 		else:
 			increment = increment + 0.1
-			
-			
 		
-		print(enemy.velocity)
-		print(direction.normalized())
 	else:
 		increment =0.1
 		enemy.velocity = Vector3()

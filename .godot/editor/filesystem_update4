@@ -1,0 +1,10 @@
+res://scenes/levels/test_map.tscn
+res://src/music_system/beat_detector.gd
+res://music_bus.tres
+res://src/enemy/enemyFollow.gd
+res://scenes/levels/cube.gd
+res://scenes/levels/music_player.gd
+res://src/player/Player.cs
+res://src/music_system/music_player.gd
+res://src/music_system/song.gd
+res://src/music_system/ricflair.tres

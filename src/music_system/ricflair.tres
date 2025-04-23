@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://yvwhxe5vqonj"]
+
+[ext_resource type="Script" uid="uid://cs56aedtsfy4m" path="res://src/music_system/song.gd" id="1_x0hxb"]
+[ext_resource type="AudioStream" uid="uid://d5o22qtslxss" path="res://Offset & Metro Boomin  - _Ric Flair Drip_ (Official Audio) 4.mp3" id="2_fmsqv"]
+
+[resource]
+script = ExtResource("1_x0hxb")
+track = ExtResource("2_fmsqv")
+low_start = 20
+high_start = 150
+threshold = 1.0
+cooldown = 0.1
+metadata/_custom_type_script = "uid://cs56aedtsfy4m"

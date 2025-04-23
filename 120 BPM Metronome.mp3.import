@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy4vdmeatw4yw"
+path="res://.godot/imported/120 BPM Metronome.mp3-3150447fe34a10f37088cdc9c789dc99.mp3str"
+
+[deps]
+
+source_file="res://120 BPM Metronome.mp3"
+dest_files=["res://.godot/imported/120 BPM Metronome.mp3-3150447fe34a10f37088cdc9c789dc99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
