@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjjsjbmfa2lar"]
+[gd_scene load_steps=20 format=3 uid="uid://cjjsjbmfa2lar"]
 
 [ext_resource type="PackedScene" uid="uid://cjhauaykw2c5i" path="res://scenes/prefabs/player/player.tscn" id="1_td57m"]
 [ext_resource type="Shader" uid="uid://cvluhcijb2bvr" path="res://textures/ps1_post_processing.gdshader" id="2_u7jvo"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://ccg2rwbfixm4f" path="res://src/enemy/state_machine.gd" id="5_ycm1u"]
 [ext_resource type="Script" uid="uid://dv7l3v4153trk" path="res://src/enemy/enemyIdle.gd" id="6_w36j2"]
 [ext_resource type="Script" uid="uid://dml0nikqu3uap" path="res://src/enemy/enemyFollow.gd" id="7_ordva"]
+[ext_resource type="PackedScene" uid="uid://bfjqipb0c18hu" path="res://models/weapons/BSC_Machete_source.blend" id="8_jw8yd"]
+[ext_resource type="Script" uid="uid://j3vxqj5gkwgi" path="res://src/music_system/music_player.gd" id="9_74xmw"]
+[ext_resource type="Script" uid="uid://dinmblcfe0imr" path="res://src/music_system/beat_detector.gd" id="9_x2ch1"]
+[ext_resource type="Script" uid="uid://cw24gwall1cjv" path="res://src/music_system/cube.gd" id="11_ni5vy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycm1u"]
 shader = ExtResource("2_u7jvo")
@@ -37,6 +41,8 @@ fog_density = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dmkb1"]
 radius = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_j22gu"]
 
 [node name="test_map" type="Node3D"]
 
@@ -99,3 +105,22 @@ shape = SubResource("CylinderShape3D_dmkb1")
 script = ExtResource("7_ordva")
 enemy = NodePath("../..")
 player = NodePath("../../../player")
+
+[node name="BSC_Machete_source" parent="." instance=ExtResource("8_jw8yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66131, 4091.18, -1.03488)
+
+[node name="music_player" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("9_74xmw")
+
+[node name="beat_detector" type="Node" parent="."]
+script = ExtResource("9_x2ch1")
+LOW_FREQ_END = 150
+COOLDOWN = 0.1
+
+[node name="cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30134, 0.537418, -4.06028)
+mesh = SubResource("BoxMesh_j22gu")
+script = ExtResource("11_ni5vy")
+
+[node name="audio_listener" type="AudioListener3D" parent="."]
+current = true
